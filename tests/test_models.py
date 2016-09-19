@@ -19,7 +19,7 @@ class TestDj_waff(TestCase):
         pass
 
     def test_something(self):
-        pass
+        self.assertEquals(True, False)
 
     def tearDown(self):
         pass
