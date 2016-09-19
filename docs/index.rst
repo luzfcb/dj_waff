@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to dj_waff - extra Django Widgets and Form Fields's documentation!
+Welcome to dj_waff - A collection of extra Django Widgets and Form Fields's documentation!
 =================================================================
 
 Contents:

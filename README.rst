@@ -1,14 +1,14 @@
 =============================
-dj_waff - extra Django Widgets and Form Fields
+dj_waff - A collection of extra Django Widgets and Form Fields
 =============================
 
-.. image:: https://badge.fury.io/py/dj_waff.png
+.. image:: https://badge.fury.io/py/dj_waff.svg
     :target: https://badge.fury.io/py/dj_waff
 
-.. image:: https://travis-ci.org/luzfcb/dj_waff.png?branch=master
+.. image:: https://travis-ci.org/luzfcb/dj_waff.svg?branch=master
     :target: https://travis-ci.org/luzfcb/dj_waff
 
-dj_waff - extra Django Widgets and Form Fields
+dj_waff - A collection of extra Django Widgets and Form Fields
 
 Documentation
 -------------

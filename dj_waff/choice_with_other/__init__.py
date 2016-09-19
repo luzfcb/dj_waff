@@ -115,21 +115,17 @@ class ChoiceWithOtherWidget(forms.MultiWidget):
 
 
 class ChoiceWithOtherField(forms.MultiValueField):
-    def __init__(self, other_form_field, *args, **kwargs):
-        # if other_form_field.required:
-        #     raise ValueError()
+    def __init__(self, other_form_field, has_empty_choice=False, first_is_preselected=False, *args, **kwargs):
         choices = list(kwargs.pop('choices'))
-
-        has_empty_choice = False
-        for c in choices:
-            if not c[0]:
-                has_empty_choice = True
-                break
-        if not has_empty_choice:
+        initial = kwargs.pop('initial', None)
+        if has_empty_choice:
             choices.insert(0, ('', '---------'))
         choices.append((OTHER_CHOICE, OTHER_CHOICE_DISPLAY))
+        if not choices[0][0] == OTHER_CHOICE and not initial and first_is_preselected:
+            initial = choices[0][0]
         choice_field = forms.ChoiceField(choices=choices,
-                                         widget=forms.RadioSelect(choices=choices, renderer=ChoiceWithOtherRenderer))
+                                         widget=forms.RadioSelect(choices=choices, renderer=ChoiceWithOtherRenderer)
+                                         )
         fields = [
             choice_field,
             other_form_field
@@ -137,7 +133,7 @@ class ChoiceWithOtherField(forms.MultiValueField):
         widget = ChoiceWithOtherWidget(choice_field_instance=choice_field, other_form_field=other_form_field)
         self._was_required = kwargs.pop('required', True)
         kwargs['required'] = False
-        super(ChoiceWithOtherField, self).__init__(widget=widget, fields=fields, *args, **kwargs)
+        super(ChoiceWithOtherField, self).__init__(widget=widget, fields=fields, initial=initial, *args, **kwargs)
 
     def compress(self, value):
         if self._was_required and (not value or value[0] in (None, '')):

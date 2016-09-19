@@ -33,7 +33,7 @@ history = open('HISTORY.rst').read().replace('.. :changelog:', '')
 setup(
     name='dj_waff',
     version=version,
-    description="""dj_waff - extra Django Widgets and Form Fields""",
+    description="""dj_waff - A collection of extra Django Widgets and Form Fields""",
     long_description=readme + '\n\n' + history,
     author='Fabio C. Barrionuevo da Luz',
     author_email='bnafta@gmail.com',
