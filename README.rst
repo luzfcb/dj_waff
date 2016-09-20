@@ -1,6 +1,6 @@
-=============================
+=======================================================================================
 dj_waff - A collection of extra Django Widgets and Form Fields
-=============================
+=======================================================================================
 
 .. image:: https://badge.fury.io/py/dj_waff.svg
     :target: https://badge.fury.io/py/dj_waff
@@ -32,7 +32,7 @@ Features
 * TODO
 
 Running Tests
---------------
+-------------
 
 Does the code actually work?
 
@@ -43,7 +43,7 @@ Does the code actually work?
     (myenv) $ python runtests.py
 
 Credits
----------
+-------
 
 Tools used in rendering this package:
 
