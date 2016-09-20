@@ -111,10 +111,20 @@ class ChoiceWithOtherWidget(forms.MultiWidget):
         ret = ret.format(other_form_field=rendered_widgets[1])
         return ret
 
-    def _media(self):
-        return forms.Media(js=('dj_waff/choice_with_other.js',))
-
-    media = property(_media)
+    #
+    # def _media(self):
+    #     return forms.Media(js=('dj_waff/choice_with_other.js',))
+    #
+    # media = property(_media)
+    class Media:
+        # css = {
+        #     'all': (
+        #         'autocomplete_light/vendor/select2/dist/css/select2.css',
+        #     )
+        # }
+        js = (
+            'dj_waff/choice_with_other.js',
+        )
 
 
 class ChoiceWithOtherField(forms.MultiValueField):
