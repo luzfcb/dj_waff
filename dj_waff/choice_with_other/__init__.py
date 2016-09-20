@@ -79,6 +79,7 @@ class ChoiceWithOtherWidget(forms.MultiWidget):
 
     def __init__(self, choice_field_instance, other_form_field, attrs=None):
         self.other_form_field = other_form_field
+        self.other_form_field.widget.is_required = False
         self.other_form_field.widget.attrs.update(
             {
                 'data-choice-fields-other': 'data-choice-fields-other'
@@ -111,17 +112,7 @@ class ChoiceWithOtherWidget(forms.MultiWidget):
         ret = ret.format(other_form_field=rendered_widgets[1])
         return ret
 
-    #
-    # def _media(self):
-    #     return forms.Media(js=('dj_waff/choice_with_other.js',))
-    #
-    # media = property(_media)
     class Media:
-        # css = {
-        #     'all': (
-        #         'autocomplete_light/vendor/select2/dist/css/select2.css',
-        #     )
-        # }
         js = (
             'dj_waff/choice_with_other.js',
         )
