@@ -61,11 +61,14 @@ class ChoiceWithOtherRenderer(RadioFieldRenderer):
                 if OTHER_CHOICE == choice[0]:
                     w = self.custom_choice_input_class(self.name, self.value,
                                                        attrs, choice, i)
+                    formated_text = format_html(self.inner_html,
+                                                choice_value=w, sub_widgets='')
                 else:
                     w = self.choice_input_class(self.name, self.value,
                                                 attrs, choice, i)
-                output.append(format_html(self.inner_html,
-                                          choice_value=force_text(w), sub_widgets=''))
+                    formated_text = format_html(self.inner_html,
+                                                choice_value=force_text(w), sub_widgets='')
+                output.append(formated_text)
         return format_html(self.outer_html,
                            id_attr=format_html(' id="{}"', id_) if id_ else '',
                            content=mark_safe('\n'.join(output)))

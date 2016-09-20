@@ -2,5 +2,11 @@ include AUTHORS.rst
 include CONTRIBUTING.rst
 include HISTORY.rst
 include LICENSE
-include README.rst
+include *.rst
+graf dj_waff
+graft docs
+graft example
+graft tests
 recursive-include dj_waff *.html *.png *.gif *js *.css *jpg *jpeg *svg *py
+global-exclude __pycache__
+global-exclude *.py[co]
