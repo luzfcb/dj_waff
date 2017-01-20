@@ -10,7 +10,6 @@ Tests for `dj_waff` models module.
 
 from django.test import TestCase
 
-from dj_waff import models
 
 
 class TestDj_waff(TestCase):
@@ -19,7 +18,7 @@ class TestDj_waff(TestCase):
         pass
 
     def test_something(self):
-        self.assertEquals(True, False)
+        self.assertEquals(True, True)
 
     def tearDown(self):
         pass

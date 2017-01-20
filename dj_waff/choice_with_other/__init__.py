@@ -1,10 +1,10 @@
 # based on https://github.com/DjangoAdminHackers/select-url-field/blob/master/select_url_field/choice_with_other.py
 #
 from django import forms
-from django.forms.widgets import RadioChoiceInput, RadioFieldRenderer, ChoiceFieldRenderer
 from django.utils.encoding import force_text
 from django.utils.html import format_html
 from django.utils.safestring import mark_safe
+from .widget_compat import RadioChoiceInput, RadioFieldRenderer, ChoiceFieldRenderer, RadioSelect
 
 OTHER_CHOICE = '__other__'
 OTHER_CHOICE_DISPLAY = ''  # 'Other:'
@@ -128,7 +128,7 @@ class ChoiceWithOtherField(forms.MultiValueField):
         if not choices[0][0] == OTHER_CHOICE and not initial and first_is_preselected:
             initial = choices[0][0]
         choice_field = forms.ChoiceField(choices=choices,
-                                         widget=forms.RadioSelect(choices=choices, renderer=ChoiceWithOtherRenderer)
+                                         widget=RadioSelect(choices=choices, renderer=ChoiceWithOtherRenderer)
                                          )
         fields = [
             choice_field,

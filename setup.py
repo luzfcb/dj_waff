@@ -8,7 +8,7 @@ try:
 except ImportError:
     from distutils.core import setup
 
-version = '0.1.0'
+version = '0.1.1'
 
 if sys.argv[-1] == 'publish':
     try:
@@ -23,8 +23,8 @@ if sys.argv[-1] == 'publish':
 
 if sys.argv[-1] == 'tag':
     print("Tagging the version on git:")
-    os.system("git tag -a %s -m 'version %s'" % (version, version))
-    os.system("git push --tags")
+    os.system("git tag -a %s -m 'version %s' --force" % (version, version))
+    os.system("git push --tags --force")
     sys.exit()
 
 readme = open('README.rst').read()
@@ -58,5 +58,6 @@ setup(
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
-    ],
+        'Programming Language :: Python :: 3.6'
+    ]
 )
