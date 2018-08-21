@@ -17,16 +17,6 @@ except ImportError:
     from django.forms.widgets import Select
     from django.utils.six.moves.urllib.parse import urljoin
 
-    __all__ = (
-        'SubWidget',
-        'RadioSelect',
-        'ChoiceInput',
-        'RadioChoiceInput',
-        'ChoiceFieldRenderer',
-        'RadioFieldRenderer'
-    )
-
-
     class RendererMixin(object):
         renderer = None  # subclasses must define this
         _empty_value = None
@@ -441,3 +431,13 @@ except ImportError:
     class RadioSelect(RendererMixin, Select):
         renderer = RadioFieldRenderer
         _empty_value = ''
+
+
+__all__ = (
+    'SubWidget',
+    'RadioSelect',
+    'ChoiceInput',
+    'RadioChoiceInput',
+    'ChoiceFieldRenderer',
+    'RadioFieldRenderer'
+)
